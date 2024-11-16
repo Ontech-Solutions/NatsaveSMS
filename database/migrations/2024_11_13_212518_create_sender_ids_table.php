@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('sender_ids', function (Blueprint $table) {
             $table->id();
-            $table->string('sender_id')->unique();
-            $table->boolean('is_whitelisted')->default(true);
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->string('sender_name')->unique();
+            $table->text('purpose')->nullable();
+            $table->unsignedBigInteger('sender_status_id')->nullable();
+            $table->timestamp('approved_at')->nullable();
+            $table->unsignedBigInteger('approved_by')->nullable();
             $table->timestamps();
+            
         });
     }
 

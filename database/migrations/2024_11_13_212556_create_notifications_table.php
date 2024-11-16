@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->text('message')->nullable();
-            $table->enum('type', ['API Credential', 'Error Alert', 'Usage Summary']);
-            $table->enum('status', ['Pending', 'Sent', 'Read'])->default('Pending');
+            $table->string('title');
+            $table->text('message');
+            $table->string('type');
+            $table->json('data')->nullable();
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
+
+            $table->index(['user_id', 'read_at']);
         });
     }
 

@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('department_id')->nullable();
             $table->unsignedBigInteger('sender_id')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            
+            $table->unique(['department_id', 'sender_id']);
         });
     }
 

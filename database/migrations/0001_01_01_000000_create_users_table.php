@@ -15,14 +15,24 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->string('password');
             $table->enum('role', ['Admin', 'Department Head', 'Branch User', 'API User']);
             $table->unsignedBigInteger('department_id')->nullable();
             $table->unsignedBigInteger('branch_id')->nullable();
-            $table->string('api_key')->unique()->nullable();
-            $table->string('api_secret')->unique()->nullable();
+            $table->string('api_key')->nullable()->unique();
+            $table->string('api_secret')->nullable();
+            $table->integer('daily_limit')->nullable();
+            $table->integer('monthly_limit')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->timestamp('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
+
+            $table->index(['email', 'api_key']);
+            $table->index(['department_id', 'role']);
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

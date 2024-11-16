@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('contact_groups', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('department_id')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('department_id')->nullable();
             $table->timestamps();
         });
     }

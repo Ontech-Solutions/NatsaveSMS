@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('account_id')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->integer('daily_limit')->nullable();
+            $table->integer('monthly_limit')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

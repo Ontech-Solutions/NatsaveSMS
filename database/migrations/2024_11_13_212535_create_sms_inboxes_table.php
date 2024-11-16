@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('sms_inboxes', function (Blueprint $table) {
             $table->id();
+            $table->string('message_id')->unique();
+            $table->string('sender');
+            $table->string('recipient');
+            $table->text('message');
+            $table->timestamp('received_at');
+            $table->timestamp('processed_at')->nullable();
+            $table->string('status');
+            $table->text('error_message')->nullable();
             $table->timestamps();
         });
     }

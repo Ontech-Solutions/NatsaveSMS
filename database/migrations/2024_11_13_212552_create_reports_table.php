@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->enum('report_type', ['Single SMS', 'Bulk SMS', 'API Usage']);
+            $table->string('name');
+            $table->string('type');
+            $table->json('parameters');
+            $table->json('data')->nullable();
             $table->unsignedBigInteger('generated_by')->nullable();
-            $table->json('filter_criteria')->nullable();
+            $table->string('file_path')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
