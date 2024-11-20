@@ -14,17 +14,16 @@ return new class extends Migration
         Schema::create('api_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('method');
-            $table->string('endpoint');
+            $table->unsignedBigInteger('api_user_id')->nullable();
+            $table->string('method')->nullable();
+            $table->string('endpoint')->nullable();
             $table->json('request_data')->nullable();
             $table->json('response_data')->nullable();
-            $table->integer('status_code');
-            $table->string('ip_address');
+            $table->integer('status_code')->nullable();
+            $table->string('ip_address')->nullable();
             $table->string('user_agent')->nullable();
             $table->integer('processing_time')->nullable();
             $table->timestamps();
-
-            $table->index(['user_id', 'created_at']);
         });
     }
 

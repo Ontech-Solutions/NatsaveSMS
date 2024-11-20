@@ -17,8 +17,11 @@ class DatabaseSeeder extends Seeder
             SenderIdSeeder::class,
             NotificationSeeder::class,
             SenderStatusSeeder::class,
+            RolePermissionSeeder::class,
             ApiLogSeeder::class,
             ReportSeeder::class,
+            SentSeeder::class,
+            ApiUserSeeder::class,
         ]);
     }
 }

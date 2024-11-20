@@ -37,4 +37,9 @@ class SenderId extends Model
     {
         return $this->belongsTo(User::class, 'approved_by');
     }
+
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class, 'department_sender_ids');
+    }
 }
