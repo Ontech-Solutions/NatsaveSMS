@@ -1,0 +1,74 @@
+@import "../../../../vendor/filament/filament/resources/css/theme.css";
+@config './tailwind.config.js';
+
+/* Sidebar Styles */
+.fi-sidebar {
+    @apply bg-transparent !important;
+}
+
+.fi-sidebar-header {
+    @apply bg-transparent shadow-transparent !important;
+}
+
+.fi-sidebar-item-label {
+    @apply text-[#209F59] hover:bg-transparent hover:text-[#ffffff] !important;
+}
+
+.fi-sidebar-item {
+    @apply bg-transparent !important;
+}
+
+.fi-sidebar-item-button {
+    @apply bg-transparent hover:bg-[#209F59] hover:bg-opacity-20 !important;
+}
+
+.fi-sidebar-item .fi-active .fi-sidebar-item-active {
+    @apply hover:bg-transparent border-r-8 border-[#885029] text-[#00747B] bg-transparent !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-label {
+    @apply text-[#00747B] hover:bg-transparent !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button {
+    @apply bg-[#209F59] bg-opacity-30 rounded-lg border-r-4 border-[#209F59] text-[#00747B] !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-icon {
+    @apply p-1 rounded-lg bg-opacity-20 shadow-md border border-[#209F59] group-hover:border-transparent text-[#209F59] !important;
+}
+
+.fi-sidebar-item-icon {
+    @apply p-1 rounded-lg bg-opacity-20 shadow-md border border-[#00747B] group-hover:border-transparent text-[#885029] !important;
+}
+
+.fi-sidebar-group-label {
+    @apply text-[#458082] text-sm !important;
+}
+
+/* Topbar Styles */
+.fi-topbar nav {
+    @apply bg-transparent !important;
+}
+
+.fi-topbar {
+    @apply shadow-[#885029] !important;
+}
+
+/* Body Styles */
+.fi-body {
+    @apply bg-[#C6E0CD] dark:bg-[#2F4858] !important;
+}
+
+/* Header Styles */
+.fi-header-heading {
+    @apply text-2xl text-[#008673] !important;
+}
+
+.fi-icon-btn-icon {
+    @apply text-[#885029] !important;
+}
+
+.fi-header-subheading {
+    @apply text-sm !important;
+}

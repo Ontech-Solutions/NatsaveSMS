@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('message_id')->unique()->nullable();
+            $table->string('internal_message_id')->unique()->nullable();
             $table->string('source_addr', 20)->nullable();
             $table->text('destination_addr')->nullable();
             $table->text('message')->nullable();
@@ -46,6 +47,7 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->index(['message_id', 'status']);
+            $table->index(['internal_message_id', 'status']);
             $table->index('submitted_date');
             $table->index('scheduled_at');
         });

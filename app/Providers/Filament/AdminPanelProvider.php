@@ -27,8 +27,19 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->favicon(asset('imgs/favicon.png'))
+            ->darkMode(false)
+            ->passwordReset()
+            ->emailVerification()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => "#209F59",
+                'secondary' => "#C6E0CD",
+                'hyper' => '#0096FF',
+                'purple' => '#BF40BF',
+                'blue_badge' => '#2566FA',
+                'red_badge' => '#FA4B25',
+                'purple_badge' => '#B725FA',
+                'white_text' => '#ffffff'
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -50,6 +61,7 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
             ]);

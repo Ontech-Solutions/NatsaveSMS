@@ -20,6 +20,7 @@ class CreateSmsOutbox extends CreateRecord
         parent::mount();
     }
 
+    
     protected function handleRecordCreation(array $data): SmsOutbox
     {
         try {

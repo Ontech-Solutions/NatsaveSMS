@@ -73,7 +73,7 @@ class SendResource extends Resource
                                             ->pluck('sender_name', 'sender_name');
                                     })
                                     ->required()
-                                    ->searchable()
+                                    //->searchable()
                                     ->helperText('Select an approved Sender ID')
                                     ->placeholder('Choose a Sender ID'),
                             ])->columns(2)

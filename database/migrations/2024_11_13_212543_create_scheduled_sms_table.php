@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('scheduled_sms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('message_id')->unique();
-            $table->string('source_addr', 20);
-            $table->text('destination_addr');
-            $table->text('message');
+            $table->string('message_id')->unique()->nullable();
+            $table->string('source_addr', 20)->nullable();
+            $table->text('destination_addr')->nullable();
+            $table->text('message')->nullable();
             $table->string('status')->default('scheduled');
             $table->text('error_message')->nullable();
             $table->unsignedTinyInteger('priority_flag')->default(0);
-            $table->string('schedule_type'); // once, daily, weekly, monthly
-            $table->json('schedule_data'); // frequency details
-            $table->timestamp('next_run_at');
+            $table->string('schedule_type')->nullable(); // once, daily, weekly, monthly
+            $table->json('schedule_data')->nullable(); // frequency details
+            $table->timestamp('next_run_at')->nullable();
             $table->timestamp('last_run_at')->nullable();
             $table->unsignedTinyInteger('esm_class')->nullable();
             $table->unsignedTinyInteger('protocol_id')->nullable();

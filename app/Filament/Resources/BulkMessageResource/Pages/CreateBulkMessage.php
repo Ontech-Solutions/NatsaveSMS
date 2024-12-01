@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBulkMessage extends CreateRecord
 {
     protected static string $resource = BulkMessageResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

@@ -13,6 +13,7 @@ class Send extends Model
         'department_id',
         'user_id',
         'message_id',
+        'internal_message_id',
         'source_addr',
         'destination_addr',
         'sms_type',

@@ -22,6 +22,8 @@ class CreateSend extends CreateRecord
         parent::mount();
     }
 
+    
+
     protected function handleRecordCreation(array $data): Send
     {
         try {
@@ -75,7 +77,8 @@ class CreateSend extends CreateRecord
 
         foreach ($phoneNumbers as $phoneNumber) {
             $messageData = [
-                'message_id' => 'MSG-' . Str::random(12),
+                'internal_message_id' => 'MSG-' . Str::random(12),
+                'message_id' => null,
                 'source_addr' => $data['source_addr'],
                 'destination_addr' => $phoneNumber,
                 'message' => $data['message'],
@@ -104,7 +107,8 @@ class CreateSend extends CreateRecord
         }
 
         return Send::create([
-            'message_id' => 'MSG-' . Str::random(12),
+            'message_id' => null,
+            'internal_message_id' => 'MSG-' . Str::random(12),
             'source_addr' => $data['source_addr'],
             'destination_addr' => $data['destination_addr'],
             'message' => $data['message'],

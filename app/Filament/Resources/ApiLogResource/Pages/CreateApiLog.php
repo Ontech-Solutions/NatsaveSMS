@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateApiLog extends CreateRecord
 {
     protected static string $resource = ApiLogResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

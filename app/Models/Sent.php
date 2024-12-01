@@ -11,6 +11,7 @@ class Sent extends Model
     protected $fillable = [
         'user_id',
         'message_id',
+        'internal_message_id',
         'source_addr',
         'destination_addr',
         'message',
